@@ -655,7 +655,7 @@ angular.module('ui.layout', [])
     return ctrl;
   }])
 
-  .directive('uiLayout', ['$window', function($window) {
+  .directive('uiLayout', ['$window', '$timeout', function($window, $timeout) {
     return {
       restrict: 'AE',
       controller: 'uiLayoutCtrl',
@@ -664,6 +664,9 @@ angular.module('ui.layout', [])
           return element[0][ctrl.sizeProperties.offsetSize];
         }, function() {
           ctrl.calculate();
+          $timeout(function() {
+            scope.$broadcast('ui.layout.resize');
+          });
         });
 
         function onResize() {

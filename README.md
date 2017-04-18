@@ -282,6 +282,7 @@ Dispatched as a splitbar is dragged, debounced to occur only every 50ms.
 $scope.$on('ui.layout.resize', function(e, beforeContainer, afterContainer){});
 ```
 
+Note: (ININ addition) This event is also dispatched when and external control causes ui-layout to re-calculate its size.
 
 ## Testing
 
